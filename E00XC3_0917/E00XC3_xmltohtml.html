@@ -1,146 +1,163 @@
 <!DOCTYPE html>
 <html lang="hu">
 	<head>
+		<title>Órarend</title>
 		<meta charset='UTF-8'>
-			<style>
-				tr {
-					background-color: aqua;
-				}
-			</style>
-			<title>Órarend</title>
-		</head>
-		<body>
-			<table border=1>
-				<thead>
-					<tr>
-						<th>targy</th>
-						<th>idopont</th>
-						<th>helyszin</th>
-						<th>oktato</th>
-						<th>szak</th>
-						<th>_id</th>
-						<th>_tipus</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Elektrotecnika-elektronika</td>
-						<td>Hétfő|08:00|09:50</td>
-						<td>E3</td>
-						<td>Szabó Norbert István</td>
-						<td>Mérnökinformatikus BSc</td>
-						<td>01</td>
-						<td>eloadas</td>
-					</tr>
-					<tr>
-						<td>Web technológiák 1.</td>
-						<td>Hétfő|10:00|12:00</td>
-						<td>E5</td>
-						<td>Dr. Agárdi Anita</td>
-						<td>Mérnökinformatikus BSc</td>
-						<td>02</td>
-						<td>eloadas</td>
-					</tr>
-					<tr>
-						<td>Angol műszaki szaknyelv 1.</td>
-						<td>Hétfő|12:00|14:00</td>
-						<td>A1/101</td>
-						<td>Dobronyi Eszter</td>
-						<td>Mérnökinformatikus BSc</td>
-						<td>03</td>
-						<td>gyakorlat</td>
-					</tr>
-					<tr>
-						<td>Web technológiák 1.</td>
-						<td>Hétfő|14:00|16:00</td>
-						<td>L101</td>
-						<td>Dr. Agárdi Anita</td>
-						<td>Mérnökinformatikus BSc</td>
-						<td>04</td>
-						<td>gyakorlat</td>
-					</tr>
-					<tr>
-						<td>Mobil programozási alapok</td>
-						<td>Hétfő|16:00|18:00</td>
-						<td>L101</td>
-						<td>Dr. Agárdi Anita</td>
-						<td>Mérnökinformatikus BSc</td>
-						<td>05</td>
-						<td>eloadas</td>
-					</tr>
-					<tr>
-						<td>Mobil programozási alapok</td>
-						<td>Hétfő|18:00|20:00</td>
-						<td>L101</td>
-						<td>Dr. Agárdi Anita</td>
-						<td>Mérnökinformatikus BSc</td>
-						<td>06</td>
-						<td>gyakorlat</td>
-					</tr>
-					<tr>
-						<td>Windows Rendszergazda</td>
-						<td>Kedd|08:00|10:00</td>
-						<td>L101</td>
-						<td>Dr. Wagner György</td>
-						<td>Mérnökinformatikus BSc</td>
-						<td>07</td>
-						<td>gyakorlat</td>
-					</tr>
-					<tr>
-						<td>Mesterséges Intelligencia alapok</td>
-						<td>Kedd|10:00|12:00</td>
-						<td>E32</td>
-						<td>Kunné Dr. Tamás Judit, Fazekas Levente Áron</td>
-						<td>Mérnökinformatikus BSc</td>
-						<td>08</td>
-						<td>eloadas</td>
-					</tr>
-					<tr>
-						<td>Mesterséges Intelligencia alapok</td>
-						<td>Kedd|12:00|14:00</td>
-						<td>E32</td>
-						<td>Kunné Dr. Tamás Judit, Fazekas Levente Áron</td>
-						<td>Mérnökinformatikus BSc</td>
-						<td>09</td>
-						<td>gyakorlat</td>
-					</tr>
-					<tr>
-						<td>Elektrotecnika-elektronika</td>
-						<td>Kedd|14:00|15:50</td>
-						<td>A1/317</td>
-						<td>Dr. Kozsely Gábor</td>
-						<td>Mérnökinformatikus BSc</td>
-						<td>10</td>
-						<td>gyakorlat</td>
-					</tr>
-					<tr>
-						<td>Windows rendszergazda</td>
-						<td>Kedd|16:00|18:00</td>
-						<td>L103</td>
-						<td>Dr. Wagner György</td>
-						<td>Mérnökinformatikus BSc</td>
-						<td>11</td>
-						<td>gyakorlat</td>
-					</tr>
-					<tr>
-						<td>Webes adatkezelő környezetek</td>
-						<td>Szerda|8:00|10:00</td>
-						<td>A1/310</td>
-						<td>Dr. Kovács László József</td>
-						<td>Mérnökinformatikus BSc</td>
-						<td>12</td>
-						<td>eloadas</td>
-					</tr>
-					<tr>
-						<td>Webes adatkezelő környezetek</td>
-						<td>Szerda|10:00|12:00</td>
-						<td>L103</td>
-						<td>Dr. Bednarik László</td>
-						<td>Mérnökinformatikus BSc</td>
-						<td>13</td>
-						<td>gyakorlat</td>
-					</tr>
-				</tbody>
-			</table>
-		</body>
-	</html>
+		<style>
+			table {
+				border-collapse: collapse;
+				border-color: black;
+				width: 100%;
+			}
+			tr {
+				background-color: rgba(128, 128, 128, 0.637)
+			}
+			th, td {
+				padding: 10px;
+			}
+			thead tr {
+				background-color: rgb(71, 71, 71);
+				color: white;
+				font-weight: bold;
+				text-transform: uppercase;
+			}
+			tbody tr:nth-child(odd){
+				background-color: rgba(99, 95, 95, 0.397)
+			}
+		</style>
+	</head>
+	<body>
+		<table border=1>
+			<thead>
+				<tr>
+					<th>targy</th>
+					<th>idopont</th>
+					<th>helyszin</th>
+					<th>oktato</th>
+					<th>szak</th>
+					<th>_id</th>
+					<th>_tipus</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Elektrotecnika-elektronika</td>
+					<td>Hétfő [08:00-09:50]</td>
+					<td>E3</td>
+					<td>Szabó Norbert István</td>
+					<td>Mérnökinformatikus BSc</td>
+					<td>01</td>
+					<td>eloadas</td>
+				</tr>
+				<tr>
+					<td>Web technológiák 1.</td>
+					<td>Hétfő [10:00-12:00]</td>
+					<td>E5</td>
+					<td>Dr. Agárdi Anita</td>
+					<td>Mérnökinformatikus BSc</td>
+					<td>02</td>
+					<td>eloadas</td>
+				</tr>
+				<tr>
+					<td>Angol műszaki szaknyelv 1.</td>
+					<td>Hétfő [12:00-14:00]</td>
+					<td>A1/101</td>
+					<td>Dobronyi Eszter</td>
+					<td>Mérnökinformatikus BSc</td>
+					<td>03</td>
+					<td>gyakorlat</td>
+				</tr>
+				<tr>
+					<td>Web technológiák 1.</td>
+					<td>Hétfő [14:00-16:00]</td>
+					<td>L101</td>
+					<td>Dr. Agárdi Anita</td>
+					<td>Mérnökinformatikus BSc</td>
+					<td>04</td>
+					<td>gyakorlat</td>
+				</tr>
+				<tr>
+					<td>Mobil programozási alapok</td>
+					<td>Hétfő [16:00-18:00]</td>
+					<td>L101</td>
+					<td>Dr. Agárdi Anita</td>
+					<td>Mérnökinformatikus BSc</td>
+					<td>05</td>
+					<td>eloadas</td>
+				</tr>
+				<tr>
+					<td>Mobil programozási alapok</td>
+					<td>Hétfő [18:00-20:00]</td>
+					<td>L101</td>
+					<td>Dr. Agárdi Anita</td>
+					<td>Mérnökinformatikus BSc</td>
+					<td>06</td>
+					<td>gyakorlat</td>
+				</tr>
+				<tr>
+					<td>Windows Rendszergazda</td>
+					<td>Kedd [08:00-10:00]</td>
+					<td>L101</td>
+					<td>Dr. Wagner György</td>
+					<td>Mérnökinformatikus BSc</td>
+					<td>07</td>
+					<td>gyakorlat</td>
+				</tr>
+				<tr>
+					<td>Mesterséges Intelligencia alapok</td>
+					<td>Kedd [10:00-12:00]</td>
+					<td>E32</td>
+					<td>Kunné Dr. Tamás Judit, Fazekas Levente Áron</td>
+					<td>Mérnökinformatikus BSc</td>
+					<td>08</td>
+					<td>eloadas</td>
+				</tr>
+				<tr>
+					<td>Mesterséges Intelligencia alapok</td>
+					<td>Kedd [12:00-14:00]</td>
+					<td>E32</td>
+					<td>Kunné Dr. Tamás Judit, Fazekas Levente Áron</td>
+					<td>Mérnökinformatikus BSc</td>
+					<td>09</td>
+					<td>gyakorlat</td>
+				</tr>
+				<tr>
+					<td>Elektrotecnika-elektronika</td>
+					<td>Kedd [14:00-15:50]</td>
+					<td>A1/317</td>
+					<td>Dr. Kozsely Gábor</td>
+					<td>Mérnökinformatikus BSc</td>
+					<td>10</td>
+					<td>gyakorlat</td>
+				</tr>
+				<tr>
+					<td>Windows rendszergazda</td>
+					<td>Kedd [16:00-18:00]</td>
+					<td>L103</td>
+					<td>Dr. Wagner György</td>
+					<td>Mérnökinformatikus BSc</td>
+					<td>11</td>
+					<td>gyakorlat</td>
+				</tr>
+				<tr>
+					<td>Webes adatkezelő környezetek</td>
+					<td>Szerda [8:00-10:00]</td>
+					<td>A1/310</td>
+					<td>Dr. Kovács László József</td>
+					<td>Mérnökinformatikus BSc</td>
+					<td>12</td>
+					<td>eloadas</td>
+				</tr>
+				<tr>
+					<td>Webes adatkezelő környezetek</td>
+					<td>Szerda [10:00-12:00]</td>
+					<td>L103</td>
+					<td>Dr. Bednarik László</td>
+					<td>Mérnökinformatikus BSc</td>
+					<td>13</td>
+					<td>gyakorlat</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>
