@@ -1,0 +1,24 @@
+<konferencia>
+  <cim>Oktatási Technológiák Konferenciája</cim>
+  <helyszin>Budapest, Műszaki Egyetem - A épület, 101-es terem</helyszin>
+  <datum>2025-10-15</datum>
+  <eloado>
+    <nev>Dr. Kovács Péter</nev>
+    <lakcim>Budapest, Petőfi Sándor u. 12.</lakcim>
+    <adoszam>12345678-1-42</adoszam>
+  </eloado>
+  <hallgatok>
+    <hallgato>
+      <nev>Horváth Anna</nev>
+      <lakcim>Győr, Rákóczi út 5.</lakcim>
+    </hallgato>
+    <hallgato>
+      <nev>Nagy Dávid</nev>
+      <lakcim>Szeged, Kossuth Lajos sgt. 3.</lakcim>
+    </hallgato>
+    <hallgato>
+      <nev>Szabó Réka</nev>
+      <lakcim>Debrecen, Piac u. 7.</lakcim>
+    </hallgato>
+  </hallgatok>
+</konferencia>
