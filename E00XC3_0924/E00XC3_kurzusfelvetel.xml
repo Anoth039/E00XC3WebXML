@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<E00XC3_kurzusfelvetel tanev="2025/26 I." egyetem="Miskolci Egyetem">
+
+    <hallgato>
+        <hnev>Ardon Milán</hnev>
+        <szulev>2003</szulev>
+        <szak evf="3">Mérnökinformatikus BSc</szak>
+    </hallgato>
+
+    <kurzusok>
+        <kurzus id="E00XC3">
+            <kurzusnev>Web technológiák 1.</kurzusnev>
+            <kredit>5</kredit>
+            <hely>E5</hely>
+            <idopont>Hétfő 10:00-12:00</idopont>
+            <oktato>Dr. Agárdi Anita</oktato>
+        </kurzus>
+
+        <kurzus id="E00XC3" jovahagyas="igen" nyelv="angol">
+            <kurzusnev>Angol műszaki szaknyelv 1.</kurzusnev>
+            <kredit>2</kredit>
+            <hely>A1/101</hely>
+            <idopont>Kedd 14:00-16:00</idopont>
+            <oktato>Dobronyi Eszter</oktato>
+            <oraado>Dobronyi Eszter</oraado>
+        </kurzus>
+
+        <kurzus id="E00XC3">
+            <kurzusnev>Mobil programozási alapok</kurzusnev>
+            <kredit>5</kredit>
+            <hely>L101</hely>
+            <idopont>Hétfő 16:00-18:00</idopont>
+            <oktato>Dr. Agárdi Anita</oktato>
+        </kurzus>
+
+        <kurzus id="E00XC3" jovahagyas="nem" nyelv="magyar">
+            <kurzusnev>Mesterséges Intelligencia alapok</kurzusnev>
+            <kredit>5</kredit>
+            <hely>E32</hely>
+            <idopont>Kedd 10:00-12:00</idopont>
+            <oktato>Kunné Dr. Tamás Judit</oktato>
+            <oraado>Fazekas Levente Áron</oraado>
+        </kurzus>
+    </kurzusok>
+
+</E00XC3_kurzusfelvetel>
