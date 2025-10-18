@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Gyökérelem -->
+<Vendéglátás>
+
+  <!-- Étterem entitás -->
+  <Étterem Ekód="E001">
+    <Név>Ízvarázs Étterem</Név>
+    <Cím>
+      <Város>Budapest</Város>
+      <Utca>Kossuth Lajos utca</Utca>
+      <Házszám>12</Házszám>
+    </Cím>
+    <Csillag>4</Csillag>
+  </Étterem>
+
+  <!-- Főszakács entitás -->
+  <Főszakács Fkód="F001" Ekód="E001">
+    <Név>Kiss Péter</Név>
+    <Életkor>45</Életkor>
+    <Végzettség>Mesterszakács</Végzettség>
+  </Főszakács>
+
+  <!-- Szakács entitás -->
+  <Szakács SzKód="S001" Ekód="E001">
+    <Név>Nagy László</Név>
+    <Részleg>Levesek</Részleg>
+    <Végzettség>Szakács OKJ</Végzettség>
+  </Szakács>
+
+  <!-- Gyakornok entitás -->
+  <Gyakornok GyKód="G001" Ekód="E001">
+    <Név>Tóth Anna</Név>
+    <Gyakorlat>
+      <Kezdete>2025-09-01</Kezdete>
+      <Időtartama>3 hónap</Időtartama>
+    </Gyakorlat>
+    <Műszak>Délután</Műszak>
+  </Gyakornok>
+
+  <!-- Vendég entitás -->
+  <Vendég Vkód="V001" Ekód="E001">
+    <Név>Szabó Márta</Név>
+    <Életkor>32</Életkor>
+    <Cím>
+      <Város>Győr</Város>
+      <Utca>Bajcsy-Zsilinszky út</Utca>
+      <Házszám>5</Házszám>
+    </Cím>
+  </Vendég>
+
+  <!-- Rendelés entitás -->
+  <Rendelés Rkód="R001" Vkód="V001" Ekód="E001">
+    <Összeg>12500</Összeg>
+    <Étel>Marhapörkölt</Étel>
+  </Rendelés>
+
+</Vendéglátás>
