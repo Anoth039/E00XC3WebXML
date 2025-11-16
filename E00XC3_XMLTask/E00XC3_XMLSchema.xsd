@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+<!-- Egyszerű típusok, felépítés -->
+<xs:element name="jarmukolcsonzes">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element name="kolcsonzo" type="kolcsonzoTipus" maxOccurs="unbounded"/>
+            <xs:element name="tulajdonos" type="tulajdonosTipus" maxOccurs="unbounded"/>
+            <xs:element name="alkalmazott" type="alkalmazottTipus" maxOccurs="unbounded"/>
+            <xs:element name="szolgaltatas" type="szolgaltatasTipus" maxOccurs="unbounded"/>
+            <xs:element name="ugyfel" type="ugyfelTipus" maxOccurs="unbounded"/>
+            <xs:element name="berles" type="berlesTipus" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Kulcsok -->
+    <xs:key name="kolcsonzo_kulcs">
+        <xs:selector xpath="kolcsonzo"/>
+        <xs:field xpath="@kkod"/>
+    </xs:key>
+
+    <xs:key name="tulajdonos_kulcs">
+        <xs:selector xpath="tulajdonos"/>
+        <xs:field xpath="@tkod"/>
+    </xs:key>
+
+    <xs:key name="alkalmazott_kulcs">
+        <xs:selector xpath="alkalmazott"/>
+        <xs:field xpath="@akod"/>
+    </xs:key>
+
+    <xs:key name="szolgaltatas_kulcs">
+        <xs:selector xpath="szolgaltatas"/>
+        <xs:field xpath="@szk"/>
+    </xs:key>
+
+    <xs:key name="ugyfel_kulcs">
+        <xs:selector xpath="ugyfel"/>
+        <xs:field xpath="@ukod"/>
+    </xs:key>
+
+    <!-- Idegen kulcsok -->
+    <xs:keyref refer="kolcsonzo_kulcs" name="kolcsonzo_idegen_kulcs">
+        <xs:selector xpath="berles"/>
+        <xs:field xpath="@k_u_k"/>
+    </xs:keyref>
+
+    <xs:keyref refer="ugyfel_kulcs" name="ugyfel_idegen_kulcs">
+        <xs:selector xpath="berles"/>
+        <xs:field xpath="@k_u_u"/>
+    </xs:keyref>
+
+    <xs:keyref refer="kolcsonzo_kulcs" name="kolcsonzo_tulajdonos_idegen_kulcs">
+        <xs:selector xpath="tulajdonos"/>
+        <xs:field xpath="@k_t"/>
+    </xs:keyref>
+
+    <xs:keyref refer="kolcsonzo_kulcs" name="kolcsonzo_alkalmazott_idegen_kulcs">
+        <xs:selector xpath="alkalmazott"/>
+        <xs:field xpath="@k_a"/>
+    </xs:keyref>
+
+    <xs:keyref refer="kolcsonzo_kulcs" name="kolcsonzo_szolgaltatas_idegen_kulcs">
+        <xs:selector xpath="szolgaltatas"/>
+        <xs:field xpath="@k_sz"/>
+    </xs:keyref>
+
+    <!-- Az 1:1 kapcsolat megvalósításához -->
+    <xs:unique name="unique_tulajdonos">
+        <xs:selector xpath="tulajdonos"/>
+        <xs:field xpath="@k_t"/>
+    </xs:unique>
+</xs:element>
+
+<!-- Kölcsönző -->
+<xs:complexType name="kolcsonzoTipus">
+    <xs:sequence>
+        <xs:element name="nev" type="xs:string"/>
+        <xs:element name="cim" type="cimTipus"/>
+        <xs:element name="elerhetoseg" type="xs:string" maxOccurs="unbounded"/>
+        <xs:element name="nyitvatartas" type="nyitvatartasTipus" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="kkod" type="xs:string" use="required"/>
+</xs:complexType>
+
+<!-- Cím -->
+<xs:complexType name="cimTipus">
+    <xs:sequence>
+        <xs:element name="varos" type="xs:string"/>
+        <xs:element name="utca" type="xs:string"/>
+        <xs:element name="hazszam" type="xs:integer"/>
+    </xs:sequence>
+</xs:complexType>
+
+<!-- Nyitvatartás -->
+<xs:complexType name="nyitvatartasTipus">
+    <xs:sequence>
+        <xs:element name="nap" type="xs:string"/>
+        <xs:element name="intervallum" type="xs:string"/>
+    </xs:sequence>
+</xs:complexType>
+
+<!-- Tulajdonos -->
+<xs:complexType name="tulajdonosTipus">
+    <xs:sequence>
+        <xs:element name="nev" type="xs:string"/>
+        <xs:element name="eletkor" type="xs:integer"/>
+        <xs:element name="adoszam" type="xs:string"/>
+    </xs:sequence>
+    <xs:attribute name="tkod" type="xs:string" use="required"/>
+    <xs:attribute name="k_t" type="xs:string" use="required"/>
+</xs:complexType>
+
+<!-- Alkalmazott -->
+<xs:complexType name="alkalmazottTipus">
+    <xs:sequence>
+        <xs:element name="nev" type="xs:string"/>
+        <xs:element name="beosztas" type="xs:string"/>
+        <xs:element name="muszak" type="xs:string" maxOccurs="unbounded"/>
+        <xs:element name="vegzettseg" type="xs:string" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="akod" type="xs:string" use="required"/>
+    <xs:attribute name="k_a" type="xs:string" use="required"/>
+</xs:complexType>
+
+<!-- Szolgáltatás -->
+<xs:complexType name="szolgaltatasTipus">
+    <xs:sequence>
+        <xs:element name="nev" type="xs:string"/>
+        <xs:element name="leiras" type="xs:string"/>
+        <xs:element name="koltseg" type="xs:integer"/>
+    </xs:sequence>
+    <xs:attribute name="szk" type="xs:string" use="required"/>
+    <xs:attribute name="k_sz" type="xs:string" use="required"/>
+</xs:complexType>
+
+<!-- Ügyfél -->
+<xs:complexType name="ugyfelTipus">
+    <xs:sequence>
+        <xs:element name="nev" type="xs:string"/>
+        <xs:element name="cim" type="cimTipus"/>
+        <xs:element name="elerhetoseg" type="xs:string" maxOccurs="unbounded"/>
+        <xs:element name="jogositvany" type="jogositvanyTipus" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="ukod" type="xs:string" use="required"/>
+</xs:complexType>
+
+<!-- Jogosítvány -->
+<xs:complexType name="jogositvanyTipus">
+    <xs:sequence>
+        <xs:element name="kategoria" type="xs:string"/>
+        <xs:element name="ervenyesseg" type="xs:string"/>
+    </xs:sequence>
+</xs:complexType>
+
+<!-- Bérlés -->
+<xs:complexType name="berlesTipus">
+    <xs:sequence>
+        <xs:element name="jarmu" type="jarmuTipus"/>
+        <xs:element name="kezdete" type="xs:string"/>
+        <xs:element name="vege" type="xs:string"/>
+        <xs:element name="dij" type="dijTipus"/>
+    </xs:sequence>
+    <xs:attribute name="k_u_k" type="xs:string" use="required"/>
+    <xs:attribute name="k_u_u" type="xs:string" use="required"/>
+</xs:complexType>
+
+<!-- Jármű -->
+<xs:complexType name="jarmuTipus">
+    <xs:sequence>
+        <xs:element name="marka" type="xs:string"/>
+        <xs:element name="tipus" type="xs:string"/>
+        <xs:element name="rendszam" type="xs:string"/>
+    </xs:sequence>
+</xs:complexType>
+
+<!-- Díj -->
+<xs:complexType name="dijTipus">
+    <xs:sequence>
+        <xs:element name="kaucio" type="xs:integer"/>
+        <xs:element name="napidij" type="xs:integer"/>
+        <xs:element name="kilometerdij" type="xs:integer"/>
+    </xs:sequence>
+</xs:complexType>
+
+</xs:schema>
