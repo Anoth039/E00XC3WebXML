@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>E00XC3 Órarend</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .lesson {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            width: 320px;
+        }
+        h2 { margin-top: 30px; }
+        #output {
+             margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>E00XC3 Órarend 2025</h2>
+
+<button onclick="loadJSON()">Órarend betöltése</button>
+
+<div id="output"></div>
+
+<script>
+function loadJSON() {
+    fetch("orarendE00XC3.json")
+        .then(response => response.json())
+        .then(data => displaySchedule(data))
+        .catch(error => console.error("Hiba:", error));
+}
+
+function displaySchedule(json) {
+    const root = json["E00XC3_orarend"];
+    const lessons = root["ora"];
+    const out = document.getElementById("output");
+
+    out.innerHTML = "";
+
+    lessons.forEach(lesson => {
+        const div = document.createElement("div");
+        div.className = "lesson";
+
+        div.innerHTML =
+            `<strong>Tárgy:</strong> ${lesson.targy}<br>
+             <strong>Helyszín:</strong> ${lesson.helyszin}<br>
+             <strong>Oktató:</strong> ${lesson.oktato}<br>
+             <strong>Szak:</strong> ${lesson.szak}<br><br>
+             <strong>Időpont:</strong> 
+             ${lesson.idopont.nap} ${lesson.idopont.tol} - ${lesson.idopont.ig}`;
+
+        out.appendChild(div);
+    });
+}
+</script>
+
+</body>
+</html>
