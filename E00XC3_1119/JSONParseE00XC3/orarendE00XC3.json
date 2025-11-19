@@ -1,0 +1,149 @@
+{
+	"E00XC3_orarend": {
+		"ora": [
+			{
+				"targy": "Elektrotecnika-elektronika",
+				"idopont": {
+					"nap": "Hétfő",
+					"tol": "08:00",
+					"ig": "09:50"
+				},
+				"helyszin": "E3",
+				"oktato": "Szabó Norbert István",
+				"szak": "Mérnökinformatikus BSc"
+			},
+			{
+				"targy": "Web technológiák 1.",
+				"idopont": {
+					"nap": "Hétfő",
+					"tol": "10:00",
+					"ig": "12:00"
+				},
+				"helyszin": "E5",
+				"oktato": "Dr. Agárdi Anita",
+				"szak": "Mérnökinformatikus BSc"
+			},
+			{
+				"targy": "Angol műszaki szaknyelv 1.",
+				"idopont": {
+					"nap": "Hétfő",
+					"tol": "12:00",
+					"ig": "14:00"
+				},
+				"helyszin": "A1/101",
+				"oktato": "Dobronyi Eszter",
+				"szak": "Mérnökinformatikus BSc"
+			},
+			{
+				"targy": "Web technológiák 1.",
+				"idopont": {
+					"nap": "Hétfő",
+					"tol": "14:00",
+					"ig": "16:00"
+				},
+				"helyszin": "L101",
+				"oktato": "Dr. Agárdi Anita",
+				"szak": "Mérnökinformatikus BSc"
+			},
+			{
+				"targy": "Mobil programozási alapok",
+				"idopont": {
+					"nap": "Hétfő",
+					"tol": "16:00",
+					"ig": "18:00"
+				},
+				"helyszin": "L101",
+				"oktato": "Dr. Agárdi Anita",
+				"szak": "Mérnökinformatikus BSc"
+			},
+			{
+				"targy": "Mobil programozási alapok",
+				"idopont": {
+					"nap": "Hétfő",
+					"tol": "18:00",
+					"ig": "20:00"
+				},
+				"helyszin": "L101",
+				"oktato": "Dr. Agárdi Anita",
+				"szak": "Mérnökinformatikus BSc"
+			},
+			{
+				"targy": "Windows Rendszergazda",
+				"idopont": {
+					"nap": "Kedd",
+					"tol": "08:00",
+					"ig": "10:00"
+				},
+				"helyszin": "L101",
+				"oktato": "Dr. Wagner György",
+				"szak": "Mérnökinformatikus BSc"
+			},
+			{
+				"targy": "Mesterséges Intelligencia alapok",
+				"idopont": {
+					"nap": "Kedd",
+					"tol": "10:00",
+					"ig": "12:00"
+				},
+				"helyszin": "E32",
+				"oktato": "Kunné Dr. Tamás Judit, Fazekas Levente Áron",
+				"szak": "Mérnökinformatikus BSc"
+			},
+			{
+				"targy": "Mesterséges Intelligencia alapok",
+				"idopont": {
+					"nap": "Kedd",
+					"tol": "12:00",
+					"ig": "14:00"
+				},
+				"helyszin": "E32",
+				"oktato": "Kunné Dr. Tamás Judit, Fazekas Levente Áron",
+				"szak": "Mérnökinformatikus BSc"
+			},
+			{
+				"targy": "Elektrotecnika-elektronika",
+				"idopont": {
+					"nap": "Kedd",
+					"tol": "14:00",
+					"ig": "15:50"
+				},
+				"helyszin": "A1/317",
+				"oktato": "Dr. Kozsely Gábor",
+				"szak": "Mérnökinformatikus BSc"
+			},
+			{
+				"targy": "Windows rendszergazda",
+				"idopont": {
+					"nap": "Kedd",
+					"tol": "16:00",
+					"ig": "18:00"
+				},
+				"helyszin": "L103",
+				"oktato": "Dr. Wagner György",
+				"szak": "Mérnökinformatikus BSc"
+			},
+			{
+				"targy": "Webes adatkezelő környezetek",
+				"idopont": {
+					"nap": "Szerda",
+					"tol": "8:00",
+					"ig": "10:00"
+				},
+				"helyszin": "A1/310",
+				"oktato": "Dr. Kovács László József",
+				"szak": "Mérnökinformatikus BSc"
+			},
+			{
+				"targy": "Webes adatkezelő környezetek",
+				"idopont": {
+					"nap": "Szerda",
+					"tol": "10:00",
+					"ig": "12:00"
+				},
+				"helyszin": "L103",
+				"oktato": "Dr. Bednarik László",
+				"szak": "Mérnökinformatikus BSc"
+			}
+		]
+	}
+}
