@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jarmukolcsonzes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="E00XC3_XMLSchema.xsd">
+
+<!-- Kölcsönzők -->
+<!-- 1. Kölcsönző-->
+<kolcsonzo kkod="k1">
+    <nev>CityCar Rent</nev>
+    <cim>
+        <varos>Budapest</varos>
+        <utca>Kerepesi út</utca>
+        <hazszam>11</hazszam>
+    </cim>
+    <elerhetoseg>+36-30-555-1111</elerhetoseg>
+    <elerhetoseg>citycar@rent.hu</elerhetoseg>
+    <nyitvatartas>
+        <nap>Hétfő</nap>
+        <intervallum>09:00-18:00</intervallum>
+    </nyitvatartas>
+    <nyitvatartas>
+        <nap>Csütörtök</nap>
+        <intervallum>10:00-18:00</intervallum>
+    </nyitvatartas>
+    <nyitvatartas>
+        <nap>Péntek</nap>
+        <intervallum>08:00-16:00</intervallum>
+    </nyitvatartas>
+</kolcsonzo>
+<!-- 2. Kölcsönző -->
+<kolcsonzo kkod="k2">
+    <nev>DriveNow</nev>
+    <cim>
+        <varos>Debrecen</varos>
+        <utca>Piac utca</utca>
+        <hazszam>44</hazszam>
+    </cim>
+    <elerhetoseg>+36-20-444-2222</elerhetoseg>
+    <elerhetoseg>info@drivenow.hu</elerhetoseg>
+    <nyitvatartas>
+        <nap>Hétfő</nap>
+        <intervallum>09:00-17:00</intervallum>
+    </nyitvatartas>
+    <nyitvatartas>
+        <nap>Kedd</nap>
+        <intervallum>12:00-16:00</intervallum>
+    </nyitvatartas>
+    <nyitvatartas>
+        <nap>Szombat</nap>
+        <intervallum>10:00-14:00</intervallum>
+    </nyitvatartas>
+</kolcsonzo>
+
+<!-- Tulajdonosok, ez megegyezik a kölcsönzők számával (1:1 kapcsolat) -->
+<!-- 1. Tulajdonos-->
+<tulajdonos tkod="t1" k_t="k1">
+    <nev>Kiss András</nev>
+    <eletkor>45</eletkor>
+    <adoszam>12345678-1-23</adoszam>
+</tulajdonos>
+<!-- 2. Tulajdonos -->
+<tulajdonos tkod="t2" k_t="k2">
+    <nev>Szabó Laura</nev>
+    <eletkor>38</eletkor>
+    <adoszam>32452321-2-12</adoszam>
+</tulajdonos>
+
+<!-- Alkalmazottak -->
+<!-- 1. Alkalmazott -->
+<alkalmazott akod="a1" k_a="k2">
+    <nev>Tóth Márk</nev>
+    <beosztas>Ügyintéző</beosztas>
+    <muszak>Délelőtt</muszak>
+    <muszak>Délután</muszak>
+    <vegzettseg>Közgazdász</vegzettseg>
+    <vegzettseg>Vállalkozásmenedzsment</vegzettseg>
+</alkalmazott>
+<!-- 2. Alkalmazott -->
+<alkalmazott akod="a2" k_a="k1">
+    <nev>Nagy Eszter</nev>
+    <beosztas>Szerelő</beosztas>
+    <muszak>Délelőtt</muszak>
+    <muszak>Éjszaka</muszak>
+    <vegzettseg>Autószerelő</vegzettseg>
+    <vegzettseg>Műszaki technikus</vegzettseg>
+</alkalmazott>
+<!-- 3. Alkalmazott-->
+<alkalmazott akod="a3" k_a="k1">
+    <nev>Farkas Lili</nev>
+    <beosztas>Ügyfélszolgálati munkatárs</beosztas>
+    <muszak>Délelőtt</muszak>
+    <muszak>Délután</muszak>
+    <vegzettseg>Közgazdász</vegzettseg>
+    <vegzettseg>Kommunikáció és médiatudomány</vegzettseg>
+</alkalmazott>
+<!-- 4. Alkalmazott -->
+<alkalmazott akod="a4" k_a="k2">
+    <nev>Horváth Gergő</nev>
+    <beosztas>Flottakezelő</beosztas>
+    <muszak>Délután</muszak>
+    <muszak>Éjszaka</muszak>
+    <vegzettseg>Logisztikai technikus</vegzettseg>
+    <vegzettseg>Műszaki technikus</vegzettseg>
+</alkalmazott>
+
+<!-- Szolgáltatások -->
+<!-- 1. Szolgáltatás -->
+<szolgaltatas szk="sz1" k_sz="k1">
+    <nev>Teljes biztosítás</nev>
+    <leiras>Olyan átfogó casco szolgáltatás, amely minden belföldi használat során fellépő sérülésre vagy káreseményre fedezetet nyújt.</leiras>
+    <koltseg>10000</koltseg>
+</szolgaltatas>
+<!-- 2. Szolgáltatás -->
+<szolgaltatas szk="sz2" k_sz="k2">
+    <nev>Utánfutó kölcsönzés</nev>
+    <leiras>Kiegészítő utánfutó biztosítása a jármű mellé, amely nagyobb csomagok vagy rakomány szállítására alkalmas.</leiras>
+    <koltseg>7000</koltseg>
+</szolgaltatas>
+<!-- 3. Szolgáltatás -->
+<szolgaltatas szk="sz3" k_sz="k2">
+    <nev>GPS navigáció</nev>
+    <leiras>Hordozható GPS készülék biztosítása pontos útvonaltervezéssel és valós idejű navigációs funkciókkal.</leiras>
+    <koltseg>3000</koltseg>
+</szolgaltatas>
+<!-- 4. Szolgáltatás -->
+<szolgaltatas szk="sz4" k_sz="k1">
+    <nev>Gyermekülés bérlése</nev>
+    <leiras>Biztonságos, ISOFIX-rögzítésű gyermekülés biztosítása a kisgyermekkel utazók számára.</leiras>
+    <koltseg>2500</koltseg>
+</szolgaltatas>
+
+<!-- Ügyfelek -->
+<!-- 1. Ügyfél -->
+<ugyfel ukod="u1">
+    <nev>Balogh Zoltán</nev>
+    <cim>
+        <varos>Miskolc</varos>
+        <utca>Kossuth Lajos utca</utca>
+        <hazszam>23</hazszam>
+    </cim>
+    <elerhetoseg>+36-30-123-4567</elerhetoseg>
+    <elerhetoseg>baloghz@mail.hu</elerhetoseg>
+    <jogositvany>
+        <kategoria>B</kategoria>
+        <ervenyesseg>2026-08-31</ervenyesseg>
+    </jogositvany>
+    <jogositvany>
+        <kategoria>C</kategoria>
+        <ervenyesseg>2026-04-10</ervenyesseg>
+    </jogositvany>
+</ugyfel>
+<!-- 2. Ügyfél -->
+<ugyfel ukod="u2">
+    <nev>Kovács Dóra</nev>
+    <cim>
+        <varos>Győr</varos>
+        <utca>Bajcsy-Zsilinszky út</utca>
+        <hazszam>8</hazszam>
+    </cim>
+    <elerhetoseg>+36-70-555-1212</elerhetoseg>
+    <elerhetoseg>dora.kovacs@gmail.com</elerhetoseg>
+    <jogositvany>
+        <kategoria>B</kategoria>
+        <ervenyesseg>2027-02-15</ervenyesseg>
+    </jogositvany>
+    <jogositvany>
+        <kategoria>A</kategoria>
+        <ervenyesseg>2028-01-18</ervenyesseg>
+    </jogositvany>
+</ugyfel>
+<!-- 3. Ügyfél -->
+<ugyfel ukod="u3">
+    <nev>Molnár Péter</nev>
+    <cim>
+        <varos>Szeged</varos>
+        <utca>Petőfi Sándor sugárút</utca>
+        <hazszam>102</hazszam>
+    </cim>
+    <elerhetoseg>+36-30-777-3344</elerhetoseg>
+    <elerhetoseg>molnar.peter@mail.hu</elerhetoseg>
+    <jogositvany>
+        <kategoria>B</kategoria>
+        <ervenyesseg>2029-11-20</ervenyesseg>
+    </jogositvany>
+    <jogositvany>
+        <kategoria>A</kategoria>
+        <ervenyesseg>2030-10-02</ervenyesseg>
+    </jogositvany>
+</ugyfel>
+<!-- 4. Ügyfél -->
+<ugyfel ukod="u4">
+    <nev>Varga Szilvia</nev>
+    <cim>
+        <varos>Pécs</varos>
+        <utca>Nagy Lajos király útja</utca>
+        <hazszam>14</hazszam>
+    </cim>
+    <elerhetoseg>+36-70-888-2211</elerhetoseg>
+    <elerhetoseg>szilvia.varga@gmail.com</elerhetoseg>
+    <jogositvany>
+        <kategoria>A</kategoria>
+        <ervenyesseg>2028-04-12</ervenyesseg>
+    </jogositvany>
+    <jogositvany>
+        <kategoria>C</kategoria>
+        <ervenyesseg>2027-11-08</ervenyesseg>
+    </jogositvany>
+</ugyfel>
+
+<!-- Bérlések, külön entitásként (N:M kapcsolat) -->
+<!-- 1. Bérlés-->
+<berles k_u_k="k1" k_u_u="u1">
+    <jarmu>
+        <marka>Toyota</marka>
+        <tipus>Corolla</tipus>
+        <rendszam>ABC-123</rendszam>
+    </jarmu>
+    <kezdete>2025-05-10</kezdete>
+    <vege>2025-05-17</vege>
+    <dij>
+        <kaucio>40000</kaucio>
+        <napidij>9000</napidij>
+        <kilometerdij>70</kilometerdij>
+    </dij>
+</berles>
+<!-- 2. Bérlés -->
+<berles k_u_k="k2" k_u_u="u2">
+    <jarmu>
+        <marka>BMW</marka>
+        <tipus>320d</tipus>
+        <rendszam>XYZ-789</rendszam>
+    </jarmu>
+    <kezdete>2025-06-01</kezdete>
+    <vege>2025-06-05</vege>
+    <dij>
+        <kaucio>60000</kaucio>
+        <napidij>12000</napidij>
+        <kilometerdij>100</kilometerdij>
+    </dij>
+</berles>
+<!-- 3. Bérlés -->
+<berles k_u_k="k1" k_u_u="u3">
+    <jarmu>
+        <marka>Volkswagen</marka>
+        <tipus>Golf</tipus>
+        <rendszam>GHT-456</rendszam>
+    </jarmu>
+    <kezdete>2025-07-12</kezdete>
+    <vege>2025-07-18</vege>
+    <dij>
+        <kaucio>45000</kaucio>
+        <napidij>8500</napidij>
+        <kilometerdij>60</kilometerdij>
+    </dij>
+</berles>
+<!-- 4. Bérlés -->
+<berles k_u_k="k2" k_u_u="u4">
+    <jarmu>
+        <marka>Yamaha</marka>
+        <tipus>MT-07</tipus>
+        <rendszam>MTR-450</rendszam>
+    </jarmu>
+    <kezdete>2025-08-03</kezdete>
+    <vege>2025-08-07</vege>
+    <dij>
+        <kaucio>55000</kaucio>
+        <napidij>11000</napidij>
+        <kilometerdij>90</kilometerdij>
+    </dij>
+</berles>
+
+</jarmukolcsonzes>
