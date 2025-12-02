@@ -2,24 +2,24 @@
 <?xml-stylesheet type="text/xsl" href="hallgatoE00XC3.xsl"?>
 <class>
     <student id="01">
-        <vezeteknev>Fekete</vezeteknev>
-        <keresztnev>Peter</keresztnev>
-        <becenev>Petya</becenev>
+        <vezeteknev>Ardon</vezeteknev>
+        <keresztnev>Milán</keresztnev>
+        <becenev>Mili</becenev>
         <kor>22</kor>
-        <osztondij>600000</osztondij>
+        <osztondij>60000</osztondij>
     </student>
     <student id="02">
-        <vezeteknev>Kék</vezeteknev>
-        <keresztnev>Dóra</keresztnev>
-        <becenev>Dorka</becenev>
-        <kor>20</kor>
-        <osztondij>520000</osztondij>
+        <vezeteknev>Kovács</vezeteknev>
+        <keresztnev>Marcell</keresztnev>
+        <becenev>Marci</becenev>
+        <kor>21</kor>
+        <osztondij>50000</osztondij>
     </student>
     <student id="03">
-        <vezeteknev>Zsoldos</vezeteknev>
-        <keresztnev>Andrea</keresztnev>
-        <becenev>Andi</becenev>
-        <kor>18</kor>
-        <osztondij>450000</osztondij>
+        <vezeteknev>Pál</vezeteknev>
+        <keresztnev>Dániel</keresztnev>
+        <becenev>Dani</becenev>
+        <kor>21</kor>
+        <osztondij>80000</osztondij>
     </student>
 </class>
