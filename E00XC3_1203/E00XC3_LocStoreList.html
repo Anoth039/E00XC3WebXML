@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LocalStorage Órarend Lista</title>
+<style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5; }
+    h1 { margin-bottom: 20px; }
+    #searchInput { width: 100%; max-width: 400px; padding: 10px; font-size: 16px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px; }
+    .orarend-card { background: white; border-radius: 8px; padding: 15px 15px 15px 25px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.15); border-left: 5px solid #3399ff; }
+    .orarend-card b { font-size: 1.1em; }
+    .orarend-card span { display: block; margin-top: 3px; color: #555; }
+</style>
+</head>
+<body>
+<h1>E00XC3 Órarend JSON</h1>
+
+<label>JSON fájl betöltése:</label>
+<input type="file" id="jsonFile" accept=".json" onchange="loadJSON(event)"><br><br>
+
+<label>Keresés tárgy szerint:</label>
+<input type="text" id="searchInput" placeholder="Írd be a tárgy nevét..." onkeyup="searchList()"><br>
+
+<div id="orarendList"></div>
+
+<script>
+function loadJSON(event) {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const data = JSON.parse(e.target.result);
+    const oraList = data.E00XC3_orarend.ora;
+    localStorage.setItem("orarend", JSON.stringify(oraList));
+    displayList();
+  };
+  reader.readAsText(file);
+}
+
+function searchList() {
+  const query = document.getElementById("searchInput").value.toLowerCase();
+  const allOrak = JSON.parse(localStorage.getItem("orarend") || "[]");
+  const filtered = allOrak.filter(o => o.targy.toLowerCase().includes(query));
+  displayList(filtered);
+}
+
+function displayList(filteredList = null) {
+  const list = filteredList || JSON.parse(localStorage.getItem("orarend") || "[]");
+  const container = document.getElementById("orarendList");
+  container.innerHTML = list.map(o => `
+    <div class="orarend-card">
+      <b>${o.targy}</b>
+      <span><b>Nap:</b> ${o.idopont.nap}</span>
+      <span><b>Idő:</b> ${o.idopont.tol}–${o.idopont.ig}</span>
+      <span><b>Helyszín:</b> ${o.helyszin}</span>
+      <span><b>Oktató:</b> ${o.oktato}</span>
+      <span><b>Szak:</b> ${o.szak}</span>
+    </div>
+  `).join("");
+}
+
+displayList();
+</script>
+</body>
+</html>

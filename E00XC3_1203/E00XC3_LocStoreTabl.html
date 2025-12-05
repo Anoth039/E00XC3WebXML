@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LocalStorage Órarend Tábla</title>
+<style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background: #eee; text-align: center; }
+</style>
+</head>
+<body>
+<h1>E00XC3 Órarend JSON</h1>
+
+<label>JSON fájl betöltése:</label>
+<input type="file" id="jsonFile" accept=".json" onchange="loadJSON(event)">
+
+<table>
+    <thead>
+      <tr>
+        <th>Tárgy</th>
+        <th>Nap</th>
+        <th>Tól</th>
+        <th>Ig</th>
+        <th>Helyszín</th>
+        <th>Oktató</th>
+        <th>Szak</th>
+      </tr>
+    </thead>
+    <tbody id="orarendTable"></tbody>
+  </table>
+
+<script>
+function loadJSON(event) {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const data = JSON.parse(e.target.result);
+    const oraList = data.E00XC3_orarend.ora;
+    localStorage.setItem("orarend", JSON.stringify(oraList));
+    displayTable();
+  };
+  reader.readAsText(file);
+}
+
+function displayTable() {
+  const list = JSON.parse(localStorage.getItem("orarend") || "[]");
+  const tbody = document.getElementById("orarendTable");
+  tbody.innerHTML = list.map(o => `
+    <tr>
+      <td>${o.targy}</td>
+      <td>${o.idopont.nap}</td>
+      <td>${o.idopont.tol}</td>
+      <td>${o.idopont.ig}</td>
+      <td>${o.helyszin}</td>
+      <td>${o.oktato}</td>
+      <td>${o.szak}</td>
+    </tr>
+  `).join("");
+}
+
+displayTable();
+</script>
+</body>
+</html>

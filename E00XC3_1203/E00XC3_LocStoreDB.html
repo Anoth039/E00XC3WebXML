@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LocalStorage Hallgatók</title>
+<style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    h2 { margin-top: 30px; }
+    div { border: 2px solid #888; padding: 15px; border-radius: 10px; background: #f9f9f9; margin-bottom: 20px; }
+    input, select { width: 300px; margin: 5px; padding: 6px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background: #eee; }
+    button { color: white; border: none; cursor: pointer; padding: 10px; margin: 5px; }
+    .btn-save { background: #28a745; }
+    .btn-export { background: #03519e; }
+    .btn-edit { background: #3399ff; }
+    .btn-delete { background: #cc0000; }
+</style>
+</head>
+<body>
+<h1>E00XC3 Hallgatók</h1>
+
+<div>
+    <h2>Új hallgató hozzáadása</h2>
+    <form id="studentForm">
+        <input type="hidden" id="editIndex" />
+        <label>Név:</label><input type="text" id="nev" required /><br>
+        <label>Évfolyam:</label><input type="text" id="evfolyam" required /><br>
+        <label>Szak:</label><input type="text" id="szak" placeholder="PTI" required /><br>
+        <label>Email:</label><input type="email" id="email" placeholder="pti@pti.hu" required /><br>
+        <label>NEPTUN kód:</label><input type="text" id="neptunkod" placeholder="AAA-123" required /><br>
+        <button type="submit" class="btn-save">Mentés</button>
+    </form>
+</div>
+
+<div>
+    <div>
+        <label><b>Keresés:</b></label><br>
+        <input type="text" id="searchInput" placeholder="Keresés..." onkeyup="searchStudent()"> 
+    </div>
+
+    <label><b>Rendezés:</b></label><br>
+    <select id="sortSelect" onchange="sortStudents()">
+        <option value="">Nincs rendezés</option>
+        <option value="nev">Név szerint</option>
+        <option value="evfolyam">Évfolyam szerint</option>
+    </select>
+
+    <br><br><label><b>Export / Import JSON</b></label><br>
+    <button class="btn-export" onclick="exportJSON()">Export JSON</button><br>
+    <label>Import JSON:</label><input type="file" id="importFile" accept="application/json" onchange="importJSON(event)" />
+</div>
+
+<h2>Hallgatók listája</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Név</th>
+      <th>Évfolyam</th>
+      <th>Szak</th>
+      <th>Email</th>
+      <th>NEPTUN</th>
+      <th>Műveletek</th>
+    </tr>
+  </thead>
+  <tbody id="studentTable"></tbody>
+</table>
+
+<script>
+function getStudents() {
+  return JSON.parse(localStorage.getItem("hallgatok") || "[]");
+}
+function saveStudents(list) {
+  localStorage.setItem("hallgatok", JSON.stringify(list));
+}
+
+// Mentés
+studentForm.addEventListener("submit", function(e) {
+  e.preventDefault();
+  let list = getStudents();
+  const obj = {
+    nev: nev.value,
+    evfolyam: evfolyam.value,
+    szak: szak.value,
+    email: email.value,
+    neptunkod: neptunkod.value
+  };
+
+  const idx = editIndex.value;
+  if (idx !== "") list[idx] = obj;
+  else list.push(obj);
+
+  saveStudents(list);
+  editIndex.value = "";
+  studentForm.reset();
+
+  sortStudents();
+});
+
+// Táblázat betöltése
+function loadTable(filtered = null) {
+  const original = getStudents();
+  const list = filtered || original;
+
+  studentTable.innerHTML = list.map(s => {
+    const realIndex = original.findIndex(o => 
+      o.nev === s.nev &&
+      o.evfolyam === s.evfolyam &&
+      o.szak === s.szak &&
+      o.email === s.email &&
+      o.neptunkod === s.neptunkod
+    );
+
+    return `
+      <tr>
+        <td>${s.nev}</td>
+        <td>${s.evfolyam}</td>
+        <td>${s.szak}</td>
+        <td>${s.email}</td>
+        <td>${s.neptunkod}</td>
+        <td>
+          <button class="btn-edit" onclick="editStudent(${realIndex})">Módosítás</button>
+          <button class="btn-delete" onclick="deleteStudent(${realIndex})">Törlés</button>
+        </td>
+      </tr>
+    `;
+  }).join("");
+}
+
+// Törlés
+function deleteStudent(i) {
+  let list = getStudents();
+  list.splice(i, 1);
+  saveStudents(list);
+  loadTable();
+}
+
+// Módosítás
+function editStudent(i) {
+  const s = getStudents()[i];
+  nev.value = s.nev;
+  evfolyam.value = s.evfolyam;
+  szak.value = s.szak;
+  email.value = s.email;
+  neptunkod.value = s.neptunkod;
+  editIndex.value = i;
+}
+
+// Keresés
+function searchStudent() {
+  const text = searchInput.value.toLowerCase();
+  const list = getStudents().filter(s =>
+    s.nev.toLowerCase().includes(text) ||
+    s.evfolyam.toLowerCase().includes(text) ||
+    s.szak.toLowerCase().includes(text) ||
+    s.email.toLowerCase().includes(text) ||
+    s.neptunkod.toLowerCase().includes(text)
+  );
+  loadTable(list);
+}
+
+// Rendezés
+function sortStudents() {
+  const key = sortSelect.value;
+  let list = getStudents();
+  if (key) {
+    list = [...list].sort((a, b) => a[key].localeCompare(b[key]));
+    loadTable(list);
+  } else {
+    loadTable();
+  }
+}
+
+// Export JSON
+function exportJSON() {
+  const data = JSON.stringify(getStudents(), null, 2);
+  const blob = new Blob([data], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "hallgatok.json";
+  a.click();
+}
+
+// Import JSON
+function importJSON(event) {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const imported = JSON.parse(e.target.result);
+    saveStudents(imported);
+    loadTable();
+  };
+  reader.readAsText(file);
+}
+
+loadTable();
+</script>
+</body>
+</html>
